@@ -5,7 +5,8 @@ function initClick()
 
 	$("#inscription").click(getCreationLogin);
 	$("#logout").click(getLogout);
-	
+	$("#theme").find("li").click(getSujet);
+	$("#sujet").find("li").click(getPost);
 		
 }
 
@@ -109,10 +110,44 @@ function getLogout(){
 }
 
 //appel de choix du theme (1: loggé, 2: pas loggé: pas de formulaire)
+function getSujet(){
+
+	var id=$(this).attr('attrid');
+	
+	var options = {
+		"url" : "index.php?page=sujet",
+		"method" : "POST",
+		"data" : { 
+					"id"	: id
+					
+				}
+	};
+	$.ajax(options).done(function(resultat) {
+		$("#contenu").html(resultat);
+		$("#sujet").find("li").click(getPost);
+		
+	});
+}
 
 
 //appel du  choix du sujet (1: loggé, 2: pas loggé: pas de formulaire)
+function getPost(){
 
+	var id=$(this).attr('attrsujet');
+	
+	var options = {
+		"url" : "index.php?page=post",
+		"method" : "POST",
+		"data" : { 
+					"id"	: id
+					
+				}
+	};
+	$.ajax(options).done(function(resultat) {
+		$("#contenu").html(resultat);
+		
+	});
+}
 
 //submit du formulaire nouveau_sujet
 

@@ -40,7 +40,6 @@
 			return $this->login;
 		}
 
-
 		public function setPass($pass)
 		{
 			$this->pass = $pass;
@@ -50,7 +49,6 @@
 		{
 			return $this->pass;
 		}
-
 
 		public function setAvatar($avatar)
 		{
@@ -62,7 +60,6 @@
 			return $this->avatar;
 		}
 
-
 		public function setDate($date)
 		{
 			$this->date = $date;
@@ -72,7 +69,6 @@
 		{
 			return $this->date;
 		}	
-
 
 		public function setAdmin($admin)
 		{
@@ -84,11 +80,11 @@
 			return $this->admin;
 		}	
 
-
-		public function getUser($db, $id)
+		public function getUser()
 		{
-			$req = "SELECT * FROM users WHERE id='".$id."'";
-			$res = mysql_query($db, $req);
+			$this->cleanDB();
+			$req = "SELECT * FROM users WHERE login='".$this->getLogin()."'";
+			$res = mysqli_query($this->getDb(), $req);
 			$user = mysqli_fetch_assoc($res);
 			return $user; 
 		}	
@@ -104,8 +100,8 @@
 
 		public function verifLogin($login)
 		{
+			$login = mysqli_real_escape_string($this->getDb(), $login);
 			$req = "SELECT * FROM users WHERE login='".$login."'";
-			
 			$db = $this->getDb();
 			$res = mysqli_query($db, $req);
 			if (mysqli_num_rows($res) != 0)
@@ -123,7 +119,6 @@
 
 			if($this->getPass() == $pass)
 				return true;
-	
 			else
 				return false;
 		}
@@ -134,14 +129,26 @@
 			$_SESSION['login'] = $this->getLogin(); 
 			$_SESSION['admin'] = $this->getAdmin();
 			$_SESSION['pass'] = $this->getPass();
+
 		}
 
-		public function createUser($login,$pass)
+		public function createUser($pass)
 		{
-			$req="INSERT INTO users (login,pass,avatar,admin) VALUES ('".$login."','".$pass."','4-manDefault.png','0')";
-
+			$this->cleanDB();
+			$pass = mysqli_real_escape_string($this->getDb(), $pass);
+			$req="INSERT INTO users (login,pass,avatar,admin) VALUES ('".$this->getLogin()."','".$pass."','4-manDefault.png','0')";
 			mysqli_query($this->db, $req);
-		}		
+
+			$data = $this->getUser();
+			$this->setUser($data);
+			$this->initSession();
+
+		}	
+
+		private function cleanDB()
+		{
+			$this->login = mysqli_real_escape_string($this->getDb(), $this->login);
+		}
 
 
 	}
