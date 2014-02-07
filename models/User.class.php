@@ -11,8 +11,8 @@
 
 		public function __construct($login, $db)
 		{
-			setLogin($login);
-			setDb($db);
+			$this->login = $login;
+			$this->db = $db;
 		}
 
 		public function setDb($db)
@@ -25,7 +25,6 @@
 			return $this->db;
 		}
 
-		
 		public function getId()
 		{
 			return $this->id;
@@ -106,11 +105,13 @@
 		public function verifLogin($login)
 		{
 			$req = "SELECT * FROM users WHERE login='".$login."'";
-			$res = mysql_query($db, $req);
+			
+			$db = $this->getDb();
+			$res = mysqli_query($db, $req);
 			if (mysqli_num_rows($res) != 0)
 			{
 				$user = mysqli_fetch_assoc($res);
-				setUser($user);
+				$this->setUser($user);
 				return true;
 			}
 			else
@@ -131,8 +132,9 @@
 		{
 			$req="INSERT INTO users (login,pass,avatar,admin) VALUES ('".$login."','".$pass."','4-manDefault.png','0')";
 
-			mysql_query($db, $req);
-		}						
+			mysqli_query($this->db, $req);
+		}		
+						
 
 	}
 

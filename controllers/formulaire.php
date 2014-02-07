@@ -2,7 +2,33 @@
 
 if (isset($_POST['connexion'])||isset($_GET['connexion']))
 {
-	require("views/avatar.html");
+	$user = new User($_POST['pseudo'], $db);
+	$bool = $user->verifLogin($_POST['pseudo']);
+
+	if ($bool == true)
+	{
+		$bool2 = $user->verifPass($_POST['password']);
+
+		if ($bool2 == true)
+		{	
+			require("views/avatar.html");
+			echo "Connecté";
+			// affichage nom et avatar a la place du formulaire d'inscription
+		}
+		else
+		{
+			echo "Mauvais mot de passe";
+			require ('controllers/formLogin.php');
+		}
+	}
+	else
+	{
+		echo 'Login inexistant';
+		require ('controllers/formLogin.php');
+	}
+		 
+	//require ('controllers/formInscription.php');
+	
 }
 
 if (isset($_POST['creation'])||isset($_GET['creation']))

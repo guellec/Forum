@@ -3,13 +3,12 @@ header('Content-Type: text/html; charset=utf8_bin');
 
 session_start();
 
-//$db = mysqli_connect('127.0.0.1','root','troiswa','forum');
+$db = mysqli_connect('localhost','root','troiswa','forum');
 
-//if ($db == false)
-//	die("erreur de connexion à la base MySQL");
+if ($db == false)
+	die("erreur de connexion à la base MySQL");
 
-//require('objets/ContactManager.class.php');
-//$manager = new ContactManager($db);
+require 'models/User.class.php';
 
 $content = 'controllers/content.php';
 

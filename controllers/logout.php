@@ -1,1 +1,3 @@
-<?php require("views/logout.html") ?>
+<?php 
+	require("views/logout.html") 
+?>

@@ -1,1 +1,3 @@
-<?php require("views/formLogin.html");?>
+<?php 
+require("views/formLogin.html");
+?>
