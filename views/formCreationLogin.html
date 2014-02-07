@@ -1,38 +1,10 @@
-<table >
-	
-	<form id="formcrea" method="post" action="controllers/formulaire?creation.php">
-		
-	<tr>
-		<td colspan="3"><strong>Login </strong></td>
-	</tr>
-	<tr>
-		<td >Pseudo</td>
-		<td >:</td>
-		<td ><input name="logpseudo" type="text" id="logpseudo"></td>
-	</tr>
+<form id="formcrea" method="post" action="controllers/formulaire?creation.php">
 
-	
-	<tr>
-		<td>Password</td>
-		<td>:</td>
-		<td><input name="logpassword" type="text" id="logpassword"></td>
-	</tr>
+	<input name="logpseudo" type="text" id="logpseudo" placeholder="Login"><!-- 
+ --><input name="logpassword" type="text" id="logpassword" placeholder="Mot de passe"><!-- 
 
-	<tr>
-		<td>Confirmation Password</td>
-		<td>:</td>
-		<td><input name="confirmpassword" type="text" id="confirmpassword"></td>
-	</tr>
+--><input name="confirmpassword" type="text" id="confirmpassword" placeholder="Confirmer le mdp"><!-- 
 
+--><button type="submit" name="logsubmit" id="logsubmit">Go !</button>
 
-
-	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td><input type="submit" name="logsubmit" id="logsubmit" value="Envoyer"></td>
-	</tr>
-			
-		
-	</form>
-	
-</table>
+</form>

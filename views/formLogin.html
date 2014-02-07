@@ -1,28 +1,7 @@
-<table >
-	
+<form id="formlogin" method="post" action="controllers/formulaire.php?connexion">
 
-	<form id="formlogin" method="post" action="controllers/formulaire.php?connexion">
-		
-	<tr>
-		<td colspan="3"><strong>Login </strong></td>
-	</tr>
-	<tr>
-		<td >Pseudo</td>
-		<td >:</td>
-		<td ><input name="pseudo" type="text" id="pseudo"></td>
-	</tr>
-	<tr>
-		<td>Password</td>
-		<td>:</td>
-		<td><input name="password" type="text" id="password"></td>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td><input type="submit" name="submit" id="submit" value="Envoyer"></td>
-	</tr>
-			
-		
-	</form>
-	
-</table>
+	<input name="pseudo" type="text" id="pseudo" placeholder="Login">
+	<input name="password" type="text" id="password" placeholder="Mot de passe">
+	<button type="submit" name="submit" id="submit">Go !</button>
+
+</form>

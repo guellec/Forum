@@ -1,53 +1,62 @@
-<header>
-
-	<h1>Le forum du Docteur Love</h1>
-
-	<ul class="connect">
-		<li id="login">Login</li>
-		<li id="inscription">Inscription</li>
-		<li id="logout">Logout</li>
-	</ul>
-
-	<div id="zonemodif">
-
-		Connectez-vous
+<div id="global-container">
+	<header>
+		<h1>Le forum du Docteur Love</h1><!-- 
 		
+	 --><div id="zonemodif"></div>
+	 	<h4>Des questions, des envies, une peine de coeur ?<br>
+	 		Viens voir le docteur !</h4>
+
+		<ul class="connect">
+			<li id="login">Connexion</li>
+			<li id="inscription">Inscription</li>
+			<li id="logout">Logout</li>
+		</ul>
+	</header>
+	
+	<div id="content-container">
+		<div id="main-content">
+			<section id="themesection">	
+				<?php include "controllers/themes.php"; ?>
+			</section>
+
+			<div id="contenu">
+			</div>
+		</div><!-- 
+
+	 --><aside id="pub">
+	 		<section id="sliderniais">
+	 			<h3>Ils nous ont fait confiance</h3>
+				<div class="flexslider">
+					<ul class="slides">
+						<li><img id="slider1" src="sources/images/illustrations/slider/1.jpg"/></li>
+					    <li><img id="slider1" src="sources/images/illustrations/slider/2.jpg"/></li>
+					    <li><img id="slider3" src="sources/images/illustrations/slider/3.jpg"/></li>
+					 </ul>
+				</div>
+				<h6>Si vous aussi vous avez trouvé l'Amour grâce à Dr. Love, envoyez vos photos à <a href="mailto:docteur@love.com">docteur@love.com</a></h6>
+	 		</section>
+		</aside>
 	</div>
 
-</header>
-
-<section>
-	
-	<?php include "controllers/themes.php"; ?>
-
-</section>
-
-<div id="contenu">
-	
-
+	<footer>
+		<div id="toplinks">
+			<div>
+				<a href="mailto:webmaster@lentremetteur.com">Contacter Le Webmaster</a>
+				</div><!-- 
+		 --><div>Règles du forum</div><!-- 
+		 --><div>
+				<ul>
+					<li>
+						<a href=""><img src="sources/images/social/facebook.png"/></a>
+					</li>
+					<li>
+						<a href=""><img src="sources/images/social/twitter.png"/></a>
+					</li>
+					<li>
+						<a href=""><img src="sources/images/social/email.png"/></a>
+					</li>								
+				</ul>
+			</div>
+		</div>
+	</footer>
 </div>
-
-<aside id="pub">
-	
-
-
-</aside>
-
-<footer>
-
-	<ul>
-
-		<li>
-			<a href="mailto:webmaster@lentremetteur.com">Contacter Le Webmaster</a>
-		</li>
-		<li>
-			Règles du forum
-		</li>
-		<li>
-			Copyright Brian, Christophe, Julie, Laurence, Loic
-		</li>	
-
-	</ul>
-
-
-</footer>

@@ -34,7 +34,6 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 
 if (isset($_POST['creation'])||isset($_GET['creation']))
 {
-
 	require("views/avatar.html");
 }
 if (isset($_POST['newsujet'])||isset($_GET['newsujet']))

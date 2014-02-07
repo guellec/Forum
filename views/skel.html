@@ -6,20 +6,16 @@
 		<meta charset="UTF-8">
 
 		<link rel="stylesheet" type="text/css" href="sources/reset_clear.css">
+		<link rel="stylesheet" type="text/css" href="sources/flexslider.css">
 		<link rel="stylesheet" type="text/css" href="sources/style.css">
-
 		<script src="sources/jquery.js"></script>
-		<style>
-		</style>
+		<script src="sources/jquery.flexslider-min.js"></script>
 		<script src="sources/script.js"></script>
-
-
-		<style>
-		</style>
+		<script>
+			$(window).load(function() {$('.flexslider').flexslider({animation: "slide"});});
+		</script>
 	</head>
 <body>
-
 	<?php require("controllers/content.php"); ?>	
-
 </body>
 </html>	
