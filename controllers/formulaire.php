@@ -12,7 +12,8 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 		if ($bool2 == true)
 		{	
 			require("views/avatar.html");
-			echo "Connecté";
+			$user->initSession();
+			echo "Connecté ".$_SESSION['login'];
 			// affichage nom et avatar a la place du formulaire d'inscription
 		}
 		else
@@ -33,6 +34,7 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 
 if (isset($_POST['creation'])||isset($_GET['creation']))
 {
+
 	require("views/avatar.html");
 }
 if (isset($_POST['newsujet'])||isset($_GET['newsujet']))

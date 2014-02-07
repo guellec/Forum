@@ -128,13 +128,21 @@
 				return false;
 		}
 
+		public function initSession()
+		{
+			$_SESSION['id'] = $this->getId();
+			$_SESSION['login'] = $this->getLogin(); 
+			$_SESSION['admin'] = $this->getAdmin();
+			$_SESSION['pass'] = $this->getPass();
+		}
+
 		public function createUser($login,$pass)
 		{
 			$req="INSERT INTO users (login,pass,avatar,admin) VALUES ('".$login."','".$pass."','4-manDefault.png','0')";
 
 			mysqli_query($this->db, $req);
 		}		
-						
+
 
 	}
 
