@@ -1,8 +1,8 @@
 <p>
 	
-	Les themes
+	Les Sujets
 
-	<ul id="theme">
+	<ul id="post">
 		<?php
 
 		//$i à supprimer 
@@ -10,7 +10,7 @@
 		while (/*$tab=mysqli_fetch_assoc($res)*/ $i<2) 
 			{?>
 
-			<?php require("views/themes.html") ?>
+			<?php require("views/post.html") ?>
 
 			
 		<?php $i++; }?>
