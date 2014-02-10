@@ -1,32 +1,10 @@
-<table >
+<p class="newsubject">Nouveau sujet</p>
+<form id="newsujet" method="post" action="controllers/formulaire.php?newsujet">
 
+	<input name="iduser" type="hidden" id="iduser">
+	<input name="idtheme" type="hidden" id="idtheme">
 
-	<form id="newsujet" method="post" action="controllers/formulaire.php?newsujet">
-		
-	<tr>
-		<td colspan="3"><strong>Nouveau sujet</strong></td>
-	</tr>
-	<tr>
-		<td >Sujet</td>
-		<td >:</td>
-		<td ><input name="titre_sujet" type="text" id="titre_sujet"></td>
-	</tr>
-	
-		<input name="iduser" type="hidden" id="iduser">
-		<input name="idtheme" type="hidden" id="idtheme">
-	
-	<tr>
-		<td colspan="3"><texteara name="sujet" id="sujet">Post</textarea></td>
-	</tr>
-
-
-	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td><input type="submit" name="envoyer" id="envoyer" value="Envoyer"></td>
-	</tr>
-			
-		
-	</form>
-	
-</table>
+	<input name="titre_sujet" type="text" id="titre_sujet" placeholder="Sujet">
+	<textarea name="sujet" id="sujettextarea" placeholder="Entrez ici votre message"></textarea>
+	<button type="submit" name="envoyer" id="envoyer">Poster !</button>
+</form>

@@ -2,14 +2,14 @@
 
 if (isset($_POST['connexion'])||isset($_GET['connexion']))
 {
-	$user = new User($_POST['pseudo'], $db);
-	$bool = $user->verifLogin($_POST['pseudo']);
+	$managerUser = new UserManager($db);
+	$user = $managerUser->getUser($_POST['pseudo']);
 
-	if ($bool == true)
+	if ($user->getId() != NULL)
 	{
-		$bool2 = $user->verifPass($_POST['password']);
+		$bool = $user->verifPass($_POST['password']);
 
-		if ($bool2 == true)
+		if ($bool == true)
 		{	
 			$user->initSession();
 			require("views/avatar.html");
@@ -30,20 +30,21 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 
 if (isset($_POST['creation'])||isset($_GET['creation']))
 {
-
-	$user = new User($_POST['logpseudo'], $db);
-	$bool = $user->verifLogin($_POST['logpseudo']);
-
-	if ($bool == true)
+	
+	$managerUser = new UserManager($db);
+	$user = $managerUser->getUser($_POST['logpseudo']);
+	
+	if ($user->getId() != NULL)
 	{
 		echo 'Login deja existant, merci de choisir un nouveau login';
 		require ('controllers/formCreationLogin.php');
 	}
 	else
 	{
+
 		if ($_POST['logpassword'] == $_POST['confirmpassword'])
 		{
-			$user->createUser($_POST['logpassword']);
+			$managerUser->insertUser($_POST['logpseudo'], $_POST['logpassword']);
 			require("views/avatar.html");
 		}
 		else
@@ -51,8 +52,6 @@ if (isset($_POST['creation'])||isset($_GET['creation']))
 			echo 'Mot de passe incorrect';
 		}
 	}
-	
-
 }
 
 if (isset($_POST['newsujet'])||isset($_GET['newsujet']))

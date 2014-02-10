@@ -7,22 +7,15 @@
 		private $avatar;
 		private $date;
 		private $admin;
-		private $db;
-
-		public function __construct($login, $db)
+		
+		public function __construct($data)
 		{
-			$this->login = $login;
-			$this->db = $db;
-		}
-
-		public function setDb($db)
-		{
-			$this->db = $db;
-		}
-
-		public function getDb()
-		{
-			return $this->db;
+			$this->id = $data['id'];
+			$this->login = $data['login'];
+			$this->pass = $data['pass'];
+			$this->avatar = $data['avatar'];
+			$this->date = $data['date'];
+			$this->admin = $data['admin'];
 		}
 
 		public function getId()
@@ -80,40 +73,6 @@
 			return $this->admin;
 		}	
 
-		public function getUser()
-		{
-			$this->cleanDB();
-			$req = "SELECT * FROM users WHERE login='".$this->getLogin()."'";
-			$res = mysqli_query($this->getDb(), $req);
-			$user = mysqli_fetch_assoc($res);
-			return $user; 
-		}	
-
-		public function setUser($data)
-		{
-			$this->id = $data['id'];
-			$this->pass = $data['pass'];
-			$this->avatar = $data['avatar'];
-			$this->date = $data['date'];
-			$this->admin = $data['admin'];
-		}
-
-		public function verifLogin($login)
-		{
-			$login = mysqli_real_escape_string($this->getDb(), $login);
-			$req = "SELECT * FROM users WHERE login='".$login."'";
-			$db = $this->getDb();
-			$res = mysqli_query($db, $req);
-			if (mysqli_num_rows($res) != 0)
-			{
-				$user = mysqli_fetch_assoc($res);
-				$this->setUser($user);
-				return true;
-			}
-			else
-				return false;
-		}
-
 		public function verifPass($pass)
 		{
 
@@ -130,23 +89,7 @@
 			$_SESSION['admin'] = $this->getAdmin();
 		}
 
-		public function createUser($pass)
-		{
-			$this->cleanDB();
-			$pass = mysqli_real_escape_string($this->getDb(), $pass);
-			$req="INSERT INTO users (login,pass,avatar,admin) VALUES ('".$this->getLogin()."','".$pass."','4-manDefault.png','0')";
-			mysqli_query($this->db, $req);
 
-			$data = $this->getUser();
-			$this->setUser($data);
-			$this->initSession();
-
-		}	
-
-		private function cleanDB()
-		{
-			$this->login = mysqli_real_escape_string($this->getDb(), $this->login);
-		}
 
 
 	}

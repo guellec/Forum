@@ -132,7 +132,9 @@ header p{
 
 
 #formlogin input,
-#formcrea input{
+#formcrea input,
+#newsujet input,
+#newsujet textarea{
 	border: none;
 	border-radius: 5px;
 	padding: 1%;
@@ -163,6 +165,58 @@ header p{
 
 #formcrea button{
 	margin-left: 3%;
+}
+
+/*Formulaire nouveau sujet*/
+.newsubject{
+	background: rgba(0,0,0,0.8);
+	color: #FFF;
+	font-weight: bold;
+	text-align: center;
+	padding: 1%;
+	border-radius: 10px 10px 0 0;
+}
+
+#newsujet input{
+	font-weight: bold;
+}
+
+#newsujet input,
+#newsujet textarea{
+	width: 100%;
+	margin-right: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-radius: 0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;	
+}
+
+#newsujet textarea{
+	border-top: 2px dotted #DE1B62;
+	min-height: 100px;
+	max-width: 100%;
+}
+
+#newsujet button{
+	border:none;
+	background: #DE1B62;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	width: 100%;
+	text-align: center;
+	border-radius: 0 0 10px 10px;
+	padding: 1%;
+	margin-top: 0;
+}
+
+#newsujet button:hover{
+	background: rgba(0,0,0,0.8);
+	color: #DE1B62;
+	cursor: pointer;
 }
 
 /*CONTENT*/
@@ -202,6 +256,10 @@ aside{
 
 /*LISTE DES SUJETS*/
 
+#sujet{
+	margin-bottom: 5%;
+}
+
 #sujet li{
 	background-image: url('images/icons/heart_pink.png');
 	background-position:1% 50%;
@@ -218,7 +276,6 @@ aside{
 	cursor:pointer;
 	background-color:rgba(222,27,98,0.8);
 	color: #fff;
-	box-shadow: 1px 1px 5px #fff;	
 }
 
 /*LISTE DES POSTS*/
@@ -246,7 +303,6 @@ aside{
 	background-color: rgba(222,27,98,0.8);
 	color: #fff;
 	padding: 2%;
-	border-radius: 10px 10px 0 0;
 }
 
 .titresujet:before{
