@@ -27,8 +27,7 @@ function getLogin(){
 function envoiForm(e){
 		
 		e.preventDefault();
-	
-		
+			
 		var pseudo = $("#pseudo").val();
 		var password = $("#password").val();
 		var connexion = "connexion";
@@ -51,8 +50,6 @@ function envoiForm(e){
 			$("#formlogin").submit(envoiForm);
 			
 		});
-
-	
 }
 
 //connexion Inscription
@@ -126,6 +123,7 @@ function getSujet(){
 	$.ajax(options).done(function(resultat) {
 		$("#contenu").html(resultat);
 		$("#sujet").find("li").click(getPost);
+		$("#newsujet").submit(newSujetForm);
 		
 	});
 }
@@ -157,7 +155,34 @@ function getPost(){
 
 
 //submit du formulaire nouveau_sujet
+function newSujetForm(e){
+		
+		e.preventDefault();
+		var titre = $("#titre_sujet").val();
+		var contenu = $("#sujettextarea").val();
+		var newsujet = "newsujet";
+		var id = $("#idtheme").val(); 
+		var options = {
+			"url" : "index.php?page=formulaire",//index.php va recevoir $_GET['page']='contact' et $_GET['formulaire']=modifier
+			// ca sert à simplifier les verifications dans le fichier contact.php
+			"method" : "POST",
+				"data" : { 
+					"titre"	: titre,
+					"contenu"  : contenu,
+					"newsujet"   : newsujet,
+					"id":id
 
+
+				}
+		};
+		$.ajax(options).done(function(resultat) {
+			$("#contenu").html(resultat);
+			$("#newsujet").submit(newSujetForm);
+			
+		});
+
+	
+}
 
 //submit du formulaire nouveau_post (répondre)
 

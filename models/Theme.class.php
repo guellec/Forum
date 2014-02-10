@@ -55,6 +55,16 @@ require 'models/Sujet.class.php';
 				$list[] = $obj;
 			}
 			return $list;
+		}
+
+		public function insertSujet($db, $titre, $contenu)
+		{
+			$titre = mysqli_real_escape_string($db, $titre);
+			$contenu =  mysqli_real_escape_string($db, $contenu);
+			$req = "INSERT INTO sujets (titre, contenu, id_theme,id_user) VALUES ('".$titre."','".$contenu."', '".$this->getId()."','".$_SESSION['id']."')";
+			mysqli_query($db, $req);
+			
+
 		}				
 
 	}

@@ -1,8 +1,8 @@
 <p class="newsubject">Nouveau sujet</p>
 <form id="newsujet" method="post" action="controllers/formulaire.php?newsujet">
 
-	<input name="iduser" type="hidden" id="iduser">
-	<input name="idtheme" type="hidden" id="idtheme">
+	
+	<input name="idtheme" type="hidden" id="idtheme" value="<?php echo $id; ?>">
 
 	<input name="titre_sujet" type="text" id="titre_sujet" placeholder="Sujet">
 	<textarea name="sujet" id="sujettextarea" placeholder="Entrez ici votre message"></textarea>

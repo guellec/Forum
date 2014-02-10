@@ -56,7 +56,11 @@ if (isset($_POST['creation'])||isset($_GET['creation']))
 
 if (isset($_POST['newsujet'])||isset($_GET['newsujet']))
 {
-	require("views/sujet.html");
+	$themeManager = new ThemeManager($db);
+	$theme = $themeManager->getTheme($_POST['id']);
+	$theme->insertSujet($themeManager->getDb(), $_POST['titre'], $_POST['contenu']);
+
+	require("controllers/sujet.php");
 }
 if (isset($_POST['newpost'])||isset($_GET['newpost']))
 {
