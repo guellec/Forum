@@ -12,7 +12,7 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 		if ($bool == true)
 		{	
 			$user->initSession();
-			require("views/avatar.html");
+			require("controllers/avatar.php");
 		}
 		else
 		{
@@ -45,7 +45,7 @@ if (isset($_POST['creation'])||isset($_GET['creation']))
 		if ($_POST['logpassword'] == $_POST['confirmpassword'])
 		{
 			$managerUser->insertUser($_POST['logpseudo'], $_POST['logpassword']);
-			require("views/avatar.html");
+			require("controllers/avatar.php");
 		}
 		else
 		{
