@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 10 Février 2014 à 12:28
+-- Généré le: Lun 10 Février 2014 à 16:25
 -- Version du serveur: 5.5.34-0ubuntu0.13.04.1
--- Version de PHP: 5.4.9-4ubuntu2.3
+-- Version de PHP: 5.4.9-4ubuntu2.4
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -33,14 +33,16 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `id_sujet` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=4 ;
 
 --
 -- Contenu de la table `messages`
 --
 
 INSERT INTO `messages` (`id`, `contenu`, `date`, `id_sujet`, `id_user`) VALUES
-(1, 'Salut, c''est cool, je suis vraiment heureuse de savoir que je peux compter sur toi en cas de soucis...', '2014-02-07 12:00:51', 1, 3);
+(1, 'Salut, c''est cool, je suis vraiment heureuse de savoir que je peux compter sur toi en cas de soucis...', '2014-02-07 12:00:51', 1, 3),
+(2, 'Nouvelle reponse', '2014-02-10 13:51:57', 1, 3),
+(3, 'Troisiem reponse Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, ipsum, aspernatur eaque molestiae necessitatibus dignissimos quaerat maiores voluptates debitis beatae nulla optio modi soluta quia fugiat accusantium repellendus voluptas ratione.', '2014-02-10 13:52:49', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -86,10 +88,10 @@ CREATE TABLE IF NOT EXISTS `themes` (
 --
 
 INSERT INTO `themes` (`id`, `nom`) VALUES
-(1, 'Présentation des nouveaux membres'),
-(2, 'Le profil du jour'),
-(3, 'Docteur Love vous conseille'),
-(4, 'Le coin détente');
+(1, 'Presentation'),
+(2, 'Profil du jour'),
+(3, 'Les conseils de Dr. Love'),
+(4, 'Coin detente');
 
 -- --------------------------------------------------------
 
@@ -106,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=38 ;
 
 --
 -- Contenu de la table `users`
@@ -148,7 +150,8 @@ INSERT INTO `users` (`id`, `login`, `pass`, `avatar`, `date`, `admin`) VALUES
 (33, 'Dom', 'Dom', 'man13.png', '2014-02-07 11:36:06', 0),
 (34, 'Archimede', 'Archimede', 'man14.png', '2014-02-07 11:36:06', 0),
 (35, 'Steven', 'Steven', 'man15.png', '2014-02-07 11:36:06', 0),
-(36, 'Newone', 'mdp', '4-manDefault.png', '2014-02-07 16:28:09', 0);
+(36, 'Newone', 'mdp', '4-manDefault.png', '2014-02-07 16:28:09', 0),
+(37, 'Newtwo', 'toto', '4-manDefault.png', '2014-02-10 15:04:54', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

@@ -6,8 +6,6 @@ $themeManager = new ThemeManager($db);
 
 $listTheme = $themeManager->getListTheme();
 
-
-
 $i = 0;
 
 while (isset($listTheme[$i]))

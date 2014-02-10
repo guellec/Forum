@@ -1,5 +1,5 @@
-/*@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
-*/
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+
 /*STYLE GLOBAL*/
 
 body{
@@ -95,7 +95,7 @@ header h4{
 }
 
 #themesection li+li{
-	margin-left: 3%;
+	margin-left: 2%;
 }
 
 /*MENU DE CONNEXION*/
@@ -269,13 +269,13 @@ aside{
 	padding:1% 0 1% 7%;
 	border-radius: 10px; 
 	margin-bottom: 2%;
-	box-shadow: 1px 1px 5px #DE1B62;
+	border: 1px solid #DE1B62;
 }
 
 #sujet li:hover{
 	cursor:pointer;
 	background-color:rgba(222,27,98,0.8);
-	color: #fff;
+	color: #fff;s
 }
 
 /*LISTE DES POSTS*/
