@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 07 Février 2014 à 13:01
+-- Généré le: Lun 10 Février 2014 à 12:28
 -- Version du serveur: 5.5.34-0ubuntu0.13.04.1
--- Version de PHP: 5.4.9-4ubuntu2.4
+-- Version de PHP: 5.4.9-4ubuntu2.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -56,14 +56,18 @@ CREATE TABLE IF NOT EXISTS `sujets` (
   `id_theme` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=6 ;
 
 --
 -- Contenu de la table `sujets`
 --
 
 INSERT INTO `sujets` (`id`, `titre`, `contenu`, `date`, `id_theme`, `id_user`) VALUES
-(1, 'Salut, je suis l''administrateur du forum de Docteur Love', 'Salut, je suis l''administrateur du forum de Docteur Love, n''hésitez pas à me poser vos questions pour tout ce qui concerne le fonctionnement de ce forum', '2014-02-07 11:55:59', 1, 17);
+(1, 'Salut, je suis l''administrateur du forum de Docteur Love', 'Salut, je suis l''administrateur du forum de Docteur Love, n''hésitez pas à me poser vos questions pour tout ce qui concerne le fonctionnement de ce forum', '2014-02-07 11:55:59', 1, 17),
+(2, 'Nouveau sujet', 'Nouveau contenu', '2014-02-10 09:46:50', 2, 1),
+(3, 'Test', 'tesdt', '2014-02-10 10:23:18', 3, 1),
+(4, 'Test', 'tesdt', '2014-02-10 10:23:20', 4, 1),
+(5, 'zaerty', 'toto', '2014-02-10 11:04:23', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -102,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=36 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_bin AUTO_INCREMENT=37 ;
 
 --
 -- Contenu de la table `users`
@@ -143,7 +147,8 @@ INSERT INTO `users` (`id`, `login`, `pass`, `avatar`, `date`, `admin`) VALUES
 (32, 'Romain', 'Romain', 'man12.png', '2014-02-07 11:36:06', 0),
 (33, 'Dom', 'Dom', 'man13.png', '2014-02-07 11:36:06', 0),
 (34, 'Archimede', 'Archimede', 'man14.png', '2014-02-07 11:36:06', 0),
-(35, 'Steven', 'Steven', 'man15.png', '2014-02-07 11:36:06', 0);
+(35, 'Steven', 'Steven', 'man15.png', '2014-02-07 11:36:06', 0),
+(36, 'Newone', 'mdp', '4-manDefault.png', '2014-02-07 16:28:09', 0);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
