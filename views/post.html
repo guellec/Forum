@@ -1,1 +1,10 @@
-<li attrpost="<?php echo $i;?>"> <?php echo "Post".$i;?> </li>
+<li attrpost="<?php echo $listMessage[$i]->getId(); ?>">
+	<div class="meta">
+		<span class="author"><?php echo $username; ?></span>
+		<br>
+		<span class="postdate"><?php echo $date; ?></span>		
+	</div><!-- 
+ --><div class="post-text">
+		<?php echo $listMessage[$i]->getContenu();?>
+	</div>
+</li>

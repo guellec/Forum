@@ -128,8 +128,6 @@
 			$_SESSION['id'] = $this->getId();
 			$_SESSION['login'] = $this->getLogin(); 
 			$_SESSION['admin'] = $this->getAdmin();
-			$_SESSION['pass'] = $this->getPass();
-
 		}
 
 		public function createUser($pass)

@@ -10,7 +10,7 @@
 		public function __construct($data)
 		{
 			$this->id = $data['id'];
-			$this->name = $data['name'];
+			$this->contenu = $data['contenu'];
 			$this->date = $data['date'];
 			$this->id_sujet = $data['id_sujet'];
 			$this->id_user = $data['id_user'];						
@@ -21,14 +21,14 @@
 			return $this->id;
 		}
 
-		public function setName($name)
+		public function setContenu($contenu)
 		{
-			$this->name = $name;
+			$this->contenu = $contenu;
 		}
 
-		public function getName()
+		public function getContenu()
 		{
-			return $this->name;
+			return $this->contenu;
 		}
 
 		public function getDate()

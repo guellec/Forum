@@ -6,7 +6,10 @@
 	 	<h4>Des questions, des envies, une peine de coeur ?<br>
 	 		Viens voir le docteur !</h4>
 
-		<ul class="connect">
+		<nav id="themesection">	
+				<?php include "controllers/themes.php"; ?>
+		</nav><!-- 
+	 --><ul class="connect">
 			<li id="login">Connexion</li>
 			<li id="inscription">Inscription</li>
 			<li id="logout">Logout</li>
@@ -15,14 +18,9 @@
 	
 	<div id="content-container">
 		<div id="main-content">
-			<section id="themesection">	
-				<?php include "controllers/themes.php"; ?>
-			</section>
-
 			<div id="contenu">
 			</div>
-		</div><!-- 
-
+		</div><!--
 	 --><aside id="pub">
 	 		<section id="sliderniais">
 	 			<h3>Ils nous ont fait confiance</h3>

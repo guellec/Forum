@@ -18,4 +18,7 @@ while(isset($listSujet[$i]))
 }
 require("views/footsujets.html");
 
+if(isset($_SESSION['id']) && $_SESSION['id']!="")
+	require("views/newSujetForm.html");
+
 ?>

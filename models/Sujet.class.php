@@ -80,7 +80,24 @@
 			return $list;
 		}		
 
+		public function getUserName($db,$id)
+		{
+			$req = "SELECT * FROM messages, users WHERE messages.id='".$id."' AND messages.id_user=users.id";
 
+			$res = mysqli_query($db, $req);
+			$donnees = mysqli_fetch_assoc($res);
+			$username=$donnees['login'];
+			return $username;
+		}
+
+		public function getMessageDate($db,$id)
+		{
+			$req = "SELECT * FROM messages WHERE id='".$id."'";
+			$res = mysqli_query($db, $req);
+			$donnees = mysqli_fetch_assoc($res);
+			$date=$donnees['date'];
+			return $date;
+		}
 
 	}
 
