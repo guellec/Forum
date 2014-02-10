@@ -74,7 +74,7 @@ header h4{
 /*NAVIGATION ENTRE THEME */
 
 #themesection{
-	width: 75%;
+	width: 70%;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -101,7 +101,7 @@ header h4{
 /*MENU DE CONNEXION*/
 
 .connect{
-	width: 25%;
+	width: 30%;
 	display: inline-block;
 	text-align: right;
 	vertical-align: middle;

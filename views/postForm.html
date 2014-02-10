@@ -1,27 +1,10 @@
-<table >
+<p>Nouveau Message</p>
+<form id="newpost" method="post" action="controllers/formulaire.php?newpost">
 
-	<form id="newpost" method="post" action="controllers/formulaire.php?newpost">
-		
-	<tr>
-		<td colspan="3"><strong>Nouveau Message</strong></td>
-	</tr>
-
-	
-		<input name="iduser" type="hidden" id="iduser">
-		<input name="idsujet" type="hidden" id="idtsujet">
-	
-	<tr>
-		<td colspan="3"><texteara name="message" id="message">Post</textarea></td>
-	</tr>
+	<input name="iduser" type="hidden" id="iduser">
+	<input name="idsujet" type="hidden" id="idtsujet">
+	<textarea name="message" id="message" placeholder="Tapez votre r&eacute;ponse"></textarea>
+	<button type="submit" name="envoyer2" id="envoyer2">Envoyer !</button>
 
 
-	<tr>
-		<td>&nbsp;</td>
-		<td>&nbsp;</td>
-		<td><input type="submit" name="envoyer2" id="envoyer2" value="Envoyer"></td>
-	</tr>
-			
-		
-	</form>
-	
-</table>
+</form>
