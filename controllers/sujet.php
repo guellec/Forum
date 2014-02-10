@@ -1,20 +1,21 @@
-<p>
-	
-	Les Sujets
+<?php
 
-	<ul id="sujet">
-		<?php
+require("views/headsujets.html");
 
-		//$i à supprimer 
-		$i=0;
-		while (/*$tab=mysqli_fetch_assoc($res)*/ $i<2) 
-			{?>
+$themeManager = new ThemeManager($db);
 
-			<?php require("views/sujet.html") ?>
+$id = $_POST['id'];
+$theme = $themeManager->getTheme($id);
 
-			
-		<?php $i++; }?>
+$listSujet = $theme->getListSujet($themeManager->getDb());
 
-	</ul>
+$i = 0;
 
-</p>
+while(isset($listSujet[$i]))
+{
+	require("views/sujet.html");
+	$i++;
+}
+require("views/footsujets.html");
+
+?>

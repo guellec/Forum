@@ -1,4 +1,5 @@
 <?php
+require 'models/Sujet.class.php';
 	class Theme
 	{
 		private $id;
@@ -6,8 +7,9 @@
 
 		public function __construct($data)
 		{
+
 			$this->id = $data['id'];
-			$this->name = $data['name'];
+			$this->name = $data['nom'];
 		}
 		
 		public function getId()
@@ -25,7 +27,35 @@
 			return $this->name;
 		}	
 
-							
+		public function createSujet($data)
+		{
+			$sujet = new Sujet($data);
+			return $sujet;
+		}
+
+		public function getSujet($db,$id)
+		{
+			$req = "SELECT * FROM sujets WHERE id='".$id."'";
+			$res = mysqli_query($db, $req);
+			$obj = $this->createSujet(mysqli_fetch_assoc($res));	
+
+			return $obj;		
+		}		
+
+		public function getListSujet($db)
+		{
+			$list = array();
+			$req = "SELECT * FROM sujets WHERE id_theme='".$this->getId()."'";
+
+			$res = mysqli_query($db, $req);
+
+			while ($donnees = mysqli_fetch_assoc($res))
+			{
+				$obj = $this->createSujet($donnees);
+				$list[] = $obj;
+			}
+			return $list;
+		}				
 
 	}
 

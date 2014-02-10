@@ -1,4 +1,5 @@
 <?php
+	require 'models/Message.class.php';
 	class Sujet
 	{
 		private $id;
@@ -57,6 +58,29 @@
 		{
 			return $this->id_user;
 		}
+
+		public function createMessage($data)
+		{
+			$message = new Message($data);
+			return $message;
+		}	
+
+		public function getListMessage($db)
+		{
+			$list = array();
+			$req = "SELECT * FROM messages WHERE id_sujet='".$this->getId()."'";
+
+			$res = mysqli_query($db, $req);
+
+			while ($donnees = mysqli_fetch_assoc($res))
+			{
+				$obj = $this->createMessage($donnees);
+				$list[] = $obj;
+			}
+			return $list;
+		}		
+
+
 
 	}
 

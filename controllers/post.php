@@ -1,20 +1,32 @@
-<p>
-	
-	Les Sujets
+<?php
 
-	<ul id="post">
-		<?php
+require("views/headpost.html");
 
-		//$i à supprimer 
-		$i=0;
-		while (/*$tab=mysqli_fetch_assoc($res)*/ $i<2) 
-			{?>
+$themeManager = new ThemeManager($db);
 
-			<?php require("views/post.html") ?>
+//récupération de l'id du sujet
+$id = $_POST['id'];
+$idtheme = $_POST['idtheme'];
 
-			
-		<?php $i++; }?>
+var_dump($_POST);
 
-	</ul>
+$theme = $themeManager->getTheme($themeManager->getDb(), $idtheme);
 
-</p>
+//$sujet = $theme->getSujet($themeManager->getDb(),$id); 
+
+
+
+//$sujet = $theme->getSujet($idtheme); 
+
+//$listMessage = $sujet->getListMessage($themeManager->getDb());
+
+/*$i = 0;
+
+while(isset($listMessage[$i]))
+{
+	require("views/post.html");
+	$i++;
+}*/
+require("views/footpost.html");
+
+?>

@@ -9,6 +9,7 @@ if ($db == false)
 	die("erreur de connexion à la base MySQL");
 
 require 'models/User.class.php';
+require 'models/ThemeManager.class.php';
 
 $content = 'controllers/content.php';
 

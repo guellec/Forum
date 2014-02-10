@@ -112,6 +112,7 @@ function getLogout(){
 //appel de choix du theme (1: loggé, 2: pas loggé: pas de formulaire)
 function getSujet(){
 
+	///id du theme
 	var id=$(this).attr('attrid');
 	
 	var options = {
@@ -119,9 +120,9 @@ function getSujet(){
 		"method" : "POST",
 		"data" : { 
 					"id"	: id
-					
 				}
 	};
+	
 	$.ajax(options).done(function(resultat) {
 		$("#contenu").html(resultat);
 		$("#sujet").find("li").click(getPost);
@@ -133,14 +134,18 @@ function getSujet(){
 //appel du  choix du sujet (1: loggé, 2: pas loggé: pas de formulaire)
 function getPost(){
 
+	///id du sujet
 	var id=$(this).attr('attrsujet');
+
+	//id du theme
+	var idtheme=$(this).attr('attrtheme');
 	
 	var options = {
 		"url" : "index.php?page=post",
 		"method" : "POST",
 		"data" : { 
-					"id"	: id
-					
+					"id"	: id,
+					"idtheme":idtheme
 				}
 	};
 	$.ajax(options).done(function(resultat) {
@@ -149,16 +154,12 @@ function getPost(){
 	});
 }
 
+
+
 //submit du formulaire nouveau_sujet
 
 
 //submit du formulaire nouveau_post (répondre)
-
-
-
-
-
-
 
 //appels des fonctions
 $(document).ready(function()
