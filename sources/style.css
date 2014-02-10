@@ -153,6 +153,10 @@ header p{
 }
 
 #formcrea input+input{
+	margin-left: 3%;
+}
+
+#formcrea input+input{
 	margin-left: 2%;
 }
 
@@ -387,4 +391,30 @@ footer #toplinks div{
 
 footer #toplinks div+div{
 	margin-left: 2%;
+}
+
+/*MEDIA QUERIES*/
+
+@media screen and (max-width:1100px){
+	#themesection{width: 100%;}
+	#formlogin{text-align: left;}
+	.connect{width: 100%; text-align: left;margin-top: 3%;}
+	#zonemodif{width: 100%; display: block;}
+	#sujet li{background-image: none; padding:1%;}
+}
+
+@media screen and (max-width:775px){
+	#main-content,aside{width: 100%; display: inline-block;}
+	#zonemodif{width: 100%; display: block;}
+	#formlogin{text-align: left;}
+	#themesection li{border-radius: 0; display: block; margin-bottom: 1%; text-align: center;}
+	#themesection li+li{margin-left: 0;}
+	#sujet li{background-image: none; padding:1%;}
+	footer #toplinks div{width: 100%; display: block; margin: 5% 0}
+	footer #toplinks div+div{margin-left: 0;}
+}
+
+
+::selection{
+	background: #DE1B62;
 }
