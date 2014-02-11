@@ -85,17 +85,20 @@ header h4{
 	display: inline-block;
 	background: #DE1B62;
 	color: #fff;
-	font-weight: bold;
+	font-size: 1em;
+
 }
 
 #themesection li:hover{
 	background: #fff;
 	color:#DE1B62;
 	cursor: pointer;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;	
 }
 
 #themesection li+li{
-	margin-left: 2%;
+	margin-left: 3%;
 }
 
 /*MENU DE CONNEXION*/
@@ -116,7 +119,7 @@ header h4{
 .connect li:hover{
 	color:#DE1B62;
 	cursor: pointer;
-	text-decoration: underline;
+	text-decoration: underline;	
 }
 
 .connect li+li{
@@ -130,11 +133,11 @@ header p{
 	font-weight: bold;
 }
 
-
 #formlogin input,
 #formcrea input,
 #newsujet input,
-#newsujet textarea{
+#newsujet textarea,
+#newpost textarea{
 	border: none;
 	border-radius: 5px;
 	padding: 1%;
@@ -146,6 +149,10 @@ header p{
 #formcrea input{
 	width: 25%;
 	margin-right: 0;
+	margin-left: 3%;
+}
+
+#formcrea input+input{
 	margin-left: 3%;
 }
 
@@ -168,7 +175,8 @@ header p{
 }
 
 /*Formulaire nouveau sujet*/
-.newsubject{
+.newsubject,
+.newresponse{
 	background: rgba(0,0,0,0.8);
 	color: #FFF;
 	font-weight: bold;
@@ -182,7 +190,8 @@ header p{
 }
 
 #newsujet input,
-#newsujet textarea{
+#newsujet textarea,
+#newpost textarea{
 	width: 100%;
 	margin-right: 0;
 	margin-top: 0;
@@ -194,13 +203,19 @@ header p{
 	-o-box-sizing:border-box;	
 }
 
-#newsujet textarea{
+#newsujet textarea,
+#newpost textarea{
 	border-top: 2px dotted #DE1B62;
 	min-height: 100px;
 	max-width: 100%;
 }
 
-#newsujet button{
+#newpost textarea{
+	border-top: none;
+}
+
+#newsujet button,
+#newpost button{
 	border:none;
 	background: #DE1B62;
 	color: #fff;
@@ -213,10 +228,13 @@ header p{
 	margin-top: 0;
 }
 
-#newsujet button:hover{
+#newsujet button:hover,
+#newpost button:hover{
 	background: rgba(0,0,0,0.8);
 	color: #DE1B62;
 	cursor: pointer;
+	-webkit-transition: all 0.3s linear;
+	-moz-transition: all 0.3s linear;		
 }
 
 /*CONTENT*/
@@ -275,7 +293,9 @@ aside{
 #sujet li:hover{
 	cursor:pointer;
 	background-color:rgba(222,27,98,0.8);
-	color: #fff;s
+	color: #fff;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;		
 }
 
 /*LISTE DES POSTS*/
@@ -313,13 +333,18 @@ aside{
 	background: rgba(255,255,255,0.8);	margin-bottom: 2%;
 }
 
-#post li{
+#post li,
+.subjectcontent{
 	font-size: 0.9em;
 	padding: 1%;
 	margin-bottom: 1%;
 	background: rgba(196,196,194,0.2);	
 }
 
+.subjectcontent{
+	background: rgba(94,11,42,0.8);	
+	color: #fff;
+}
 /*ASIDE*/
 
 aside{
@@ -366,4 +391,30 @@ footer #toplinks div{
 
 footer #toplinks div+div{
 	margin-left: 2%;
+}
+
+/*MEDIA QUERIES*/
+
+@media screen and (max-width:1100px){
+	#themesection{width: 100%;}
+	#formlogin{text-align: left;}
+	.connect{width: 100%; text-align: left;margin-top: 3%;}
+	#zonemodif{width: 100%; display: block;}
+	#sujet li{background-image: none; padding:1%;}
+}
+
+@media screen and (max-width:775px){
+	#main-content,aside{width: 100%; display: inline-block;}
+	#zonemodif{width: 100%; display: block;}
+	#formlogin{text-align: left;}
+	#themesection li{border-radius: 0; display: block; margin-bottom: 1%; text-align: center;}
+	#themesection li+li{margin-left: 0;}
+	#sujet li{background-image: none; padding:1%;}
+	footer #toplinks div{width: 100%; display: block; margin: 5% 0}
+	footer #toplinks div+div{margin-left: 0;}
+}
+
+
+::selection{
+	background: #DE1B62;
 }

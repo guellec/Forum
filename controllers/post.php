@@ -12,7 +12,7 @@ $sujet = $theme->getSujet($themeManager->getDb(),$id);
 
 $titre = $sujet->getTitre();
 
-$auteur = $sujet->getTitre();
+$contenu = $sujet->getContenu();
 
 $username = $sujet->getUserName($themeManager->getDb(),$id);
 
