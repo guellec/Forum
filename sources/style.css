@@ -360,6 +360,10 @@ aside{
 	width: 33%;
 }
 
+aside section{
+	margin-bottom: 10%;
+}
+
 aside h3{
 	margin-bottom: 5%;
 	text-align: center;
@@ -431,4 +435,6 @@ footer #toplinks div+div{
 
 ::selection{
 	background: #DE1B62;
+
 }
+
