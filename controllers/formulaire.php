@@ -4,7 +4,8 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 {
 	$managerUser = new UserManager($db);
 
-	$log = trim($_POST['pseudo']);
+	$log = cleanStringLogin(trim($_POST['pseudo']));
+
 	
 	if(!preg_match("#[a-zA-Z0-9_]+#", $log))
 	{
@@ -42,7 +43,7 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 if (isset($_POST['creation'])||isset($_GET['creation']))
 {
 	$managerUser = new UserManager($db);
-	$log = trim($_POST['logpseudo']);
+	$log = cleanStringLogin(trim($_POST['logpseudo']));
 	
 	if(!preg_match("#[a-zA-Z0-9_]+#", $log))
 	{
@@ -104,6 +105,17 @@ if (isset($_POST['newpost'])||isset($_GET['newpost']))
 function cleanString($str)
 {
 	$str = preg_replace('{[\]&œ~/=§%*$£+#()_{|}[<>\\\]}', '', $str);
+	return $str;
+}
+
+function cleanStringLogin($str)
+{
+	$str = preg_replace('{[àâä]}', 'a', $str);
+	$str = preg_replace('{[éèêë]}', 'e', $str);
+	$str = preg_replace('{[îï]}', 'i', $str);
+	$str = preg_replace('{[ùûü]}', 'u', $str);
+	$str = preg_replace('{[öô]}', 'o', $str);
+	$str = preg_replace('{[ŷÿ]}', 'y', $str);
 	return $str;
 }
 
