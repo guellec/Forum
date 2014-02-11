@@ -99,6 +99,13 @@
 			return $date;
 		}
 
+		public function insertMessage($db, $contenu)
+		{
+			$contenu =  mysqli_real_escape_string($db, $contenu);
+			$req = "INSERT INTO messages (contenu, id_sujet,id_user) VALUES ('".$contenu."', '".$this->getId()."','".$_SESSION['id']."')";
+			mysqli_query($db, $req);
+		}
+
 	}
 
 ?>

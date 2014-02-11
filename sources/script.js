@@ -148,6 +148,7 @@ function getPost(){
 	};
 	$.ajax(options).done(function(resultat) {
 		$("#contenu").html(resultat);
+		$("#newpost").submit(newPostForm);
 		
 	});
 }
@@ -177,12 +178,43 @@ function newSujetForm(e){
 			$("#contenu").html(resultat);
 			$("#newsujet").submit(newSujetForm);
 			
+			initClick();
+			
 		});
 
 	
 }
 
 //submit du formulaire nouveau_post (répondre)
+function newPostForm(e){
+		
+		e.preventDefault();
+		var contenu = $("#message").val();
+		var newpost = "newpost";
+		var id = $("#idsujet").val(); 
+		var idtheme = $("#idtheme2").val();
+		
+		var options = {
+			"url" : "index.php?page=formulaire",//index.php va recevoir $_GET['page']='contact' et $_GET['formulaire']=modifier
+			// ca sert à simplifier les verifications dans le fichier contact.php
+			"method" : "POST",
+				"data" : { 
+					"contenu"  : contenu,
+					"newpost"   : newpost,
+					"id":id,
+					"idtheme":idtheme
+				}
+		};
+		$.ajax(options).done(function(resultat) {
+			$("#contenu").html(resultat);
+			$("#newpost").submit(newPostForm);
+			initClick();
+			
+		});
+
+	
+}
+
 
 //appels des fonctions
 $(document).ready(function()
