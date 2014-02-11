@@ -94,8 +94,8 @@ if (isset($_POST['creation'])||isset($_GET['creation']))
 
 if (isset($_POST['newsujet'])||isset($_GET['newsujet']))
 {
-	$contenu = cleanString($_POST['contenu']); 
-	$titre = cleanString($_POST['titre']);
+	$contenu = $_POST['contenu']; 
+	$titre = $_POST['titre'];
 	if ($titre != "" &&  $contenu != "")
 	{
 		$themeManager = new ThemeManager($db);
@@ -107,7 +107,7 @@ if (isset($_POST['newsujet'])||isset($_GET['newsujet']))
 }
 if (isset($_POST['newpost'])||isset($_GET['newpost']))
 {
-	$contenu = cleanString($_POST['contenu']); 
+	$contenu = $_POST['contenu']; 
 	if ($contenu != "")
 	{
 		$themeManager = new ThemeManager($db);

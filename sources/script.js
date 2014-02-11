@@ -105,7 +105,9 @@ function getLogout(){
 	$.ajax(options).done(function(resultat) {
 		$("#zonemodif").html(resultat);
 		refreshLogmenu();
+		location.reload();
 	});
+
 }
 
 function refreshLogmenu(){
