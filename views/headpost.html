@@ -1,17 +1,17 @@
 <section class="liste">
-	<h2 class="titresujet"><?php echo $titre; ?></h2>
+	<h2 class="titresujet"><?php echo htmlentities($titre); ?></h2>
 	<div class="subjectcontent">
 		<div class="meta">
 			<span class="author">
-				<?php echo $author; ?>
+				<?php echo htmlentities($author); ?>
 			</span>
 			<br>
 			<span class="postdate">
-				<?php echo $date; ?>
+				<?php echo htmlentities($date); ?>
 			</span>		
 		</div><!-- 
 	 --><p class="post-text">	
-	 		<?php echo $contenu; ?>
+	 		<?php echo htmlentities($contenu); ?>
 		</p>
 	</div>
 		<ul id="post">

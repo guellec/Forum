@@ -3,76 +3,108 @@
 if (isset($_POST['connexion'])||isset($_GET['connexion']))
 {
 	$managerUser = new UserManager($db);
-	$user = $managerUser->getUser($_POST['pseudo']);
 
-	if ($user->getId() != NULL)
+	$log = trim($_POST['pseudo']);
+	
+	if(!preg_match("#[a-zA-Z0-9_]+#", $log))
 	{
-		$bool = $user->verifPass($_POST['password']);
+		$user = $managerUser->getUser($log);
+		if ($user->getId() != NULL)
+		{
+			$bool = $user->verifPass($_POST['password']);
 
-		if ($bool == true)
-		{	
-			$user->initSession();
-			require("controllers/avatar.php");
+			if ($bool == true)
+			{	
+				$user->initSession();
+				require("controllers/avatar.php");
+			}
+			else
+			{
+				echo "Mauvais mot de passe";
+				require ('controllers/formLogin.php');
+			}
 		}
 		else
 		{
-			echo "Mauvais mot de passe";
+			echo 'Login inexistant';
 			require ('controllers/formLogin.php');
-		}
+		}	
 	}
 	else
 	{
-		echo 'Login inexistant';
+		echo 'Votre login ne peut contenir que des caracteres alphanumeriques';
 		require ('controllers/formLogin.php');
 	}
+
 
 }
 
 if (isset($_POST['creation'])||isset($_GET['creation']))
 {
-	
 	$managerUser = new UserManager($db);
-	$user = $managerUser->getUser($_POST['logpseudo']);
+	$log = trim($_POST['logpseudo']);
 	
-	if ($user->getId() != NULL)
+	if(!preg_match("#[a-zA-Z0-9_]+#", $log))
 	{
-		echo 'Login deja existant, merci de choisir un nouveau login';
-		require ('controllers/formCreationLogin.php');
-	}
-	else
-	{
-
-		if ($_POST['logpassword'] == $_POST['confirmpassword'])
+		$user = $managerUser->getUser($log);
+		if ($user->getId() != NULL || $log == "")
 		{
-			$managerUser->insertUser($_POST['logpseudo'], $_POST['logpassword']);
-			require("controllers/avatar.php");
+			echo 'Login deja existant, ou vide, merci de choisir un nouveau login';
+			require ('controllers/formCreationLogin.php');
 		}
 		else
 		{
-			echo 'Mot de passe incorrect';
+
+			if ($_POST['logpassword'] == $_POST['confirmpassword'])
+			{
+				$managerUser->insertUser($log, $_POST['logpassword']);
+				var_dump($_SESSION);
+				require("controllers/avatar.php");
+			}
+			else
+			{
+				echo 'Mot de passe incorrect';
+			}
 		}
 	}
+	else
+	{
+		echo 'Votre login ne peut contenir que des caracteres alphanumeriques';
+		require ('controllers/formCreationLogin.php');
+	}
+
 }
 
 if (isset($_POST['newsujet'])||isset($_GET['newsujet']))
 {
-	$themeManager = new ThemeManager($db);
-	$theme = $themeManager->getTheme($_POST['id']);
-	$theme->insertSujet($themeManager->getDb(), $_POST['titre'], $_POST['contenu']);
+	$contenu = cleanString($_POST['contenu']); 
+	$titre = cleanString($_POST['titre']);
+	if ($titre != "" &&  $contenu != "")
+	{
+		$themeManager = new ThemeManager($db);
+		$theme = $themeManager->getTheme($_POST['id']);
+		$theme->insertSujet($themeManager->getDb(), $titre, $contenu);
+	}
 
 	require("controllers/sujet.php");
 }
 if (isset($_POST['newpost'])||isset($_GET['newpost']))
 {
-
-	$themeManager = new ThemeManager($db);
-	$theme = $themeManager->getTheme($_POST['idtheme']);
-	$sujet = $theme->getSujet($themeManager->getDb(), $_POST['id']);
-	$sujet->insertMessage($themeManager->getDb(), $_POST['contenu']);
-
+	$contenu = cleanString($_POST['contenu']); 
+	if ($contenu != "")
+	{
+		$themeManager = new ThemeManager($db);
+		$theme = $themeManager->getTheme($_POST['idtheme']);
+		$sujet = $theme->getSujet($themeManager->getDb(), $_POST['id']);
+		$sujet->insertMessage($themeManager->getDb(), $contenu);
+	}
 	require("controllers/post.php");
 }
 
-
+function cleanString($str)
+{
+	$str = preg_replace('{[\]&œ~/=§%*$£+#()_{|}[<>\\\]}', '', $str);
+	return $str;
+}
 
 ?>

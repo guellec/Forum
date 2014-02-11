@@ -1,10 +1,10 @@
-<li attrpost="<?php echo $listMessage[$i]->getId(); ?>">
+<li attrpost="<?php echo htmlentities($listMessage[$i]->getId()); ?>">
 	<div class="meta">
-		<span class="author"><?php echo $username; ?></span>
+		<span class="author"><?php echo htmlentities($username); ?></span>
 		<br>
 		<span class="postdate"><?php echo $date; ?></span>		
 	</div><!-- 
  --><div class="post-text">
-		<?php echo $listMessage[$i]->getContenu();?>
+		<?php echo htmlentities($listMessage[$i]->getContenu());?>
 	</div>
 </li>

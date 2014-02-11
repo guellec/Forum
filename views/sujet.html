@@ -1,1 +1,1 @@
-<li attrsujet="<?php echo $listSujet[$i]->getId();?>" attrtheme="<?php echo $theme->getId(); ?>"> <?php echo $listSujet[$i]->getTitre();?> </li>
+<li attrsujet="<?php echo htmlentities($listSujet[$i]->getId());?>" attrtheme="<?php echo $theme->getId(); ?>"> <?php echo htmlentities($listSujet[$i]->getTitre());?> </li>

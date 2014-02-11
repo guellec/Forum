@@ -87,6 +87,8 @@ function envoiFormCreation(e){
 		$.ajax(options).done(function(resultat) {
 			$("#zonemodif").html(resultat);
 			$("#formcrea").submit(envoiFormCreation);
+			refreshLogmenu();
+
 			
 		});
 

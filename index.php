@@ -1,6 +1,7 @@
 <?php // modèle MVC2
 header('Content-Type: text/html; charset=utf8_bin');
 
+
 session_start();
 
 $db = mysqli_connect('localhost','root','troiswa','forum');
