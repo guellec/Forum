@@ -12,7 +12,16 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 		$user = $managerUser->getUser($log);
 		if ($user->getId() != NULL)
 		{
-			$bool = $user->verifPass($_POST['password']);
+			
+			if(!preg_match("#[a-zA-Z0-9_]+#", $_POST['password']))
+			{
+				$bool = $user->verifPass($pass);
+			}
+			else
+			{
+				echo 'Votre password ne peut contenir que des caracteres alphanumeriques';
+				$bool = false;
+			}
 
 			if ($bool == true)
 			{	
@@ -36,8 +45,6 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 		echo 'Votre login ne peut contenir que des caracteres alphanumeriques';
 		require ('controllers/formLogin.php');
 	}
-
-
 }
 
 if (isset($_POST['creation'])||isset($_GET['creation']))
@@ -55,16 +62,26 @@ if (isset($_POST['creation'])||isset($_GET['creation']))
 		}
 		else
 		{
-
-			if ($_POST['logpassword'] == $_POST['confirmpassword'])
+			$pass = $_POST['logpassword'];
+			if(!preg_match("#[a-zA-Z0-9_]+#", $pass))
 			{
-				$managerUser->insertUser($log, $_POST['logpassword']);
-				var_dump($_SESSION);
-				require("controllers/avatar.php");
+				if ($pass == $_POST['confirmpassword'])
+				{
+					$managerUser->insertUser($log, $pass]);
+					var_dump($_SESSION);
+					require("controllers/avatar.php");
+				}
+				else
+				{
+					echo 'Mot de passe incorrect';
+					require ('controllers/formCreationLogin.php');
+				}
 			}
 			else
 			{
-				echo 'Mot de passe incorrect';
+				echo 'Votre password ne peut contenir que des caracteres alphanumeriques';
+				require ('controllers/formCreationLogin.php');
+					
 			}
 		}
 	}
