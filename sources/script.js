@@ -171,8 +171,6 @@ function newSujetForm(e){
 					"contenu"  : contenu,
 					"newsujet"   : newsujet,
 					"id":id
-
-
 				}
 		};
 		$.ajax(options).done(function(resultat) {
