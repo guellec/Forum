@@ -4,6 +4,7 @@ require("views/headsujets.html");
 
 $themeManager = new ThemeManager($db);
 
+// id du theme
 $id = $_POST['id'];
 $theme = $themeManager->getTheme($id);
 
