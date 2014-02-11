@@ -9,6 +9,7 @@ body{
 	background-position: 50% 0;
 	background-repeat: no-repeat;
 	background-color: #000;
+	background-attachment:fixed;
 }
 
 #global-container{
@@ -74,7 +75,7 @@ header h4{
 /*NAVIGATION ENTRE THEME */
 
 #themesection{
-	width: 70%;
+	width: 80%;
 	display: inline-block;
 	vertical-align: middle;
 }
@@ -104,7 +105,7 @@ header h4{
 /*MENU DE CONNEXION*/
 
 .connect{
-	width: 30%;
+	width: 20%;
 	display: inline-block;
 	text-align: right;
 	vertical-align: middle;
@@ -208,6 +209,7 @@ header p{
 	border-top: 2px dotted #DE1B62;
 	min-height: 100px;
 	max-width: 100%;
+	background:rgba(255,255,255,0.5);	
 }
 
 #newpost textarea{
@@ -307,15 +309,22 @@ aside{
 }
 
 .meta{
-	width: 25%;
+	width: 15%;
 }
 
 .author{
 	font-weight: bold;
 }
 
+.postdate{
+	font-style: italic;
+	font-size: 0.7em;
+}
+
 .post-text{
-	width: 75%;
+	width: 85%;
+	font-size: 0.8em;
+	line-height: 1.5em;
 }
 
 .titresujet{
@@ -338,7 +347,7 @@ aside{
 	font-size: 0.9em;
 	padding: 1%;
 	margin-bottom: 1%;
-	background: rgba(196,196,194,0.2);	
+	background: rgba(196,196,194,0.4);	
 }
 
 .subjectcontent{
@@ -401,6 +410,9 @@ footer #toplinks div+div{
 	.connect{width: 100%; text-align: left;margin-top: 3%;}
 	#zonemodif{width: 100%; display: block;}
 	#sujet li{background-image: none; padding:1%;}
+	h1{width: 100%;}
+	#formcrea input{margin-left: 0;}
+	header p{text-align: left;}	
 }
 
 @media screen and (max-width:775px){
@@ -412,6 +424,8 @@ footer #toplinks div+div{
 	#sujet li{background-image: none; padding:1%;}
 	footer #toplinks div{width: 100%; display: block; margin: 5% 0}
 	footer #toplinks div+div{margin-left: 0;}
+	#contenu{text-align: center;}
+	header, header p, .connect{text-align: center;}
 }
 
 

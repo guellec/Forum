@@ -8,13 +8,19 @@ $idtheme = $_POST['idtheme'];
 
 $theme = $themeManager->getTheme($idtheme);
 
-$sujet = $theme->getSujet($themeManager->getDb(),$id);
+//récupération de l'auteur du sujet
+$author=$theme->getAuthorName($db,$id);
+
+//récupération de la date du sujet
+$date=$theme->getSubjectDate($db,$id);
+
+$sujet = $theme->getSujet($db,$id);
 
 $titre = $sujet->getTitre();
 
 $contenu = $sujet->getContenu();
 
-$username = $sujet->getUserName($themeManager->getDb(),$id);
+$username = $sujet->getUserName($db,$id);
 
 $listMessage = $sujet->getListMessage($themeManager->getDb());
 

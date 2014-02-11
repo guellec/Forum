@@ -102,7 +102,6 @@ function getLogout(){
 	};
 	$.ajax(options).done(function(resultat) {
 		$("#zonemodif").html(resultat);
-		
 	});
 }
 
