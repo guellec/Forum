@@ -48,7 +48,7 @@ function envoiForm(e){
 			
 			$("#zonemodif").html(resultat);
 			$("#formlogin").submit(envoiForm);
-			
+			refreshLogmenu();	
 		});
 }
 
@@ -102,6 +102,18 @@ function getLogout(){
 	};
 	$.ajax(options).done(function(resultat) {
 		$("#zonemodif").html(resultat);
+		refreshLogmenu();
+	});
+}
+
+function refreshLogmenu(){
+	var options = {
+		"url" : "index.php?page=log_menu",
+		"method" : "GET"
+	};
+	$.ajax(options).done(function(resultat) {
+		$(".connect").html(resultat);
+		initClick();
 	});
 }
 
