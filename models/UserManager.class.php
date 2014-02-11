@@ -31,7 +31,6 @@
 			}
 
 			$req = "SELECT * FROM users WHERE login='".$login."'";
-			echo $req;
 			$res = mysqli_query($this->getDb(), $req);
 
 			$obj = $this->createUser(mysqli_fetch_assoc($res));

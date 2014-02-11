@@ -6,16 +6,16 @@ if (isset($_POST['connexion'])||isset($_GET['connexion']))
 
 	$log = cleanStringLogin(trim($_POST['pseudo']));
 
-	
-	if(!preg_match("#[a-zA-Z0-9_]+#", $log))
+	if(preg_match("#[a-zA-Z0-9_]+#", $log))
 	{
+
 		$user = $managerUser->getUser($log);
 		if ($user->getId() != NULL)
 		{
 			
-			if(!preg_match("#[a-zA-Z0-9_]+#", $_POST['password']))
+			if(preg_match("#[a-zA-Z0-9_]+#", $_POST['password']))
 			{
-				$bool = $user->verifPass($pass);
+				$bool = $user->verifPass($_POST['password']);
 			}
 			else
 			{
@@ -52,7 +52,7 @@ if (isset($_POST['creation'])||isset($_GET['creation']))
 	$managerUser = new UserManager($db);
 	$log = cleanStringLogin(trim($_POST['logpseudo']));
 	
-	if(!preg_match("#[a-zA-Z0-9_]+#", $log))
+	if(preg_match("#^[a-zA-Z0-9_]+$#", $log))
 	{
 		$user = $managerUser->getUser($log);
 		if ($user->getId() != NULL || $log == "")
@@ -63,12 +63,11 @@ if (isset($_POST['creation'])||isset($_GET['creation']))
 		else
 		{
 			$pass = $_POST['logpassword'];
-			if(!preg_match("#[a-zA-Z0-9_]+#", $pass))
+			if(preg_match("#[a-zA-Z0-9_]+#", $pass))
 			{
 				if ($pass == $_POST['confirmpassword'])
 				{
-					$managerUser->insertUser($log, $pass]);
-					var_dump($_SESSION);
+					$managerUser->insertUser($log, $pass);
 					require("controllers/avatar.php");
 				}
 				else
